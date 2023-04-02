@@ -10,6 +10,10 @@ public class chessboard {
         this.score = score;
     }
 
+    public void addScore(int score) {
+        this.score += score;
+        System.out.println("得分："+getScore());
+    }
     public String getStatus() {
         return status;
     }

@@ -7,6 +7,7 @@ public class Main {
         {
             k.echoInput(c);
             c.Display();
+            //c.addScore(100);
         }
     }
 }
