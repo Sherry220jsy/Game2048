@@ -1,7 +1,7 @@
 public class chessboard {
     public int score;
     public String status;
-    public int[][]chessboard;
+    public static int[][]chessboard;
 
     public int getScore() {
         return score;
@@ -29,10 +29,10 @@ public class chessboard {
     }
 
 
-    public static void Display(int [][]a){
-        for (int i=0;i<a.length;i++) {
-            for (int j = 0; j < a[i].length; j++)
-                System.out.print(a[i][j]);
+    public static void Display(){
+        for (int i=0;i<chessboard.length;i++) {
+            for (int j = 0; j < chessboard.length; j++)
+                System.out.print(chessboard[i][j]);
             System.out.println();
         }
     }
