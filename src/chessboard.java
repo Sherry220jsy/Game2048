@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class chessboard {
     public static int score;
     public static String status;
@@ -43,5 +45,24 @@ public class chessboard {
             }
             System.out.println();
         }
+    }
+
+    public static void SpawnBlock()
+    {
+        Random r= new Random();
+        boolean ju=r.nextBoolean();
+        int x;
+        int y;
+        while (true)
+        {
+            x=r.nextInt(3);
+            y=r.nextInt(3);
+            if (chessboard[x][y]==0) break;
+        }
+        if (ju)
+        {
+            chessboard[x][y]=2;
+        }
+        else chessboard[x][y]=4;
     }
 }
