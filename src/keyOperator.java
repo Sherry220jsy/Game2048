@@ -14,24 +14,25 @@ public class keyOperator {
         return in;
     }
 
-    public static void echoInput(chessboard c) {
+    public static boolean echoInput(chessboard c) {
         String in = readInput();
         if (in.equals("p"))
         {
             c.setStatus("pause");
-            return;
+            return false;
         }
         if (in.equals("e"))
         {
             c.setStatus("end");
-            return;
+            return false;
         }
-        if (in.equals("s"))
+        if (in.equals("s"))   //start
         {
             c.setStatus("playing");
-            return;
+            return true;
         }
         //未完待续...
         System.out.println("异常：非法的输入："+in);
+        return false;
     }
 }

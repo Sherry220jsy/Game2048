@@ -5,9 +5,8 @@ public class Main {
         keyOperator k=new keyOperator();
         while (true)
         {
-            k.echoInput(c);
+            if (k.echoInput(c)==true) c.SpawnBlock();
             c.Display();
-            c.SpawnBlock();
         }
     }
 }

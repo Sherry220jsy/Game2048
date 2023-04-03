@@ -55,8 +55,8 @@ public class chessboard {
         int y;
         while (true)
         {
-            x=r.nextInt(3);
-            y=r.nextInt(3);
+            x=r.nextInt(4);
+            y=r.nextInt(4);
             if (chessboard[x][y]==0) break;
         }
         if (ju)
