@@ -14,7 +14,7 @@ public class chessboard {
 
     public void addScore(int score) {
         this.score += score;
-        System.out.println("得分："+getScore());
+        System.out.println("加分—— "+score);
     }
     public String getStatus() {
         return status;
@@ -66,7 +66,7 @@ public class chessboard {
         else chessboard[x][y]=4;
     }
 
-    public static int up()
+    public int up()
     {
         int sum=0;//相加的数之和
 
@@ -89,7 +89,7 @@ public class chessboard {
                     {
                         chessboard[k-1][j]=chessboard[k][j]+chessboard[k-1][j];
                         sum=sum+chessboard[k-1][j];
-                        addScore();
+                        addScore(sum);
                         chessboard[k][j]=0;
                     }
                     else {
@@ -102,7 +102,7 @@ public class chessboard {
     }
 
     //下
-    public static int down()
+    public int down()
     {
         int sum=0;
 
@@ -124,6 +124,7 @@ public class chessboard {
                     {
                         chessboard[k+1][j]=chessboard[k][j]+chessboard[k+1][j];
                         sum=sum+chessboard[k+1][j];
+                        addScore(sum);
                         chessboard[k][j]=0;
                     }
                     else {
@@ -137,7 +138,7 @@ public class chessboard {
 
     //左
 
-    public static int left()
+    public int left()
     {
         int sum=0;
 
@@ -159,6 +160,7 @@ public class chessboard {
                     {
                         chessboard[j][k-1]=chessboard[j][k]+chessboard[j][k-1];
                         sum=sum+chessboard[j][k-1];
+                        addScore(sum);
                         chessboard[j][k]=0;
                     }
                     else {
@@ -170,7 +172,7 @@ public class chessboard {
         return sum;
     }
     //右
-    public static int right()
+    public int right()
     {
         int sum=0;
 
@@ -192,6 +194,7 @@ public class chessboard {
                     {
                         chessboard[j][k+1]=chessboard[j][k]+chessboard[j][k+1];
                         sum=sum+chessboard[j][k+1];
+                        addScore(sum);
                         chessboard[j][k]=0;
                     }
                     else {

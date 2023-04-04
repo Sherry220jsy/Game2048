@@ -9,5 +9,6 @@ public class Main {
             c.Display();
             if (c.checkgame()==0) break;
         }
+        System.out.println("你死了");
     }
 }
