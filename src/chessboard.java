@@ -65,4 +65,140 @@ public class chessboard {
         }
         else chessboard[x][y]=4;
     }
+
+    public static int up(chessboard)
+    {
+        int sum=0;//相加的数之和
+
+        for(int j=0;j<4;j++)//控制列
+        {
+            for(int i=1;i<4;i++)//控制行
+            {
+                //将a[i][j]数字往上移动直到上一个数字不为0或到顶为止
+                int k=i;
+                while(k>0 && chessboard[k-1][j]==0)
+                {
+                    chessboard[k-1][j]=chessboard[k][j];
+                    chessboard[k][j]=0;
+                    k--;
+                }
+                //移动到a[k][j]，判断该数字上方是否有数字是否可加，可加相加
+                while(k>0&&chessboard[k][j]!=0)
+                {
+                    if(chessboard[k][j]==chessboard[k-1][j])
+                    {
+                        chessboard[k-1][j]=chessboard[k][j]+chessboard[k-1][j];
+                        sum=sum+chessboard[k-1][j];
+                        chessboard[k][j]=0;
+                    }
+                    else {
+                        break;
+                    }
+                }
+            }
+        }
+        return sum;
+    }
+
+    //下
+    public static int down(chessboard)
+    {
+        int sum=0;
+
+        for(int j=0;j<4;j++)//控制列
+        {
+            for(int i=2;i>-1;i--)//控制行
+            {
+                int k=i;
+                while(k<3 && chessboard[k+1][j]==0)
+                {
+                    chessboard[k+1][j]=chessboard[k][j];
+                    chessboard[k][j]=0;
+                    k++;
+                }
+
+                while(k<3&&chessboard[k][j]!=0)
+                {
+                    if(chessboard[k][j]==chessboard[k+1][j])
+                    {
+                        chessboard[k+1][j]=chessboard[k][j]+chessboard[k+1][j];
+                        sum=sum+chessboard[k+1][j];
+                        chessboard[k][j]=0;
+                    }
+                    else {
+                        break;
+                    }
+                }
+            }
+        }
+        return sum;
+    }
+
+    //左
+
+    public static int left(chessboard)
+    {
+        int sum=0;
+
+        for(int j=0;j<4;j++)//控制行
+        {
+            for(int i=1;i<4;i++)//控制列
+            {
+                int k=i;
+                while(k>0 && chessboard[j][k-1]==0)
+                {
+                    chessboard[j][k-1]=chessboard[j][k];
+                    chessboard[j][k]=0;
+                    k--;
+                }
+
+                while(k>0&&chessboard[j][k]!=0)
+                {
+                    if(chessboard[j][k]==chessboard[j][k-1])
+                    {
+                        chessboard[j][k-1]=chessboard[j][k]+chessboard[j][k-1];
+                        sum=sum+chessboard[j][k-1];
+                        chessboard[j][k]=0;
+                    }
+                    else {
+                        break;
+                    }
+                }
+            }
+        }
+        return sum;
+    }
+    //右
+    public static int right(chessboard)
+    {
+        int sum=0;
+
+        for(int j=0;j<4;j++)//控制行
+        {
+            for(int i=2;i>-1;i--)//控制列
+            {
+                int k=i;
+                while(k<3 && chessboard[j][k+1]==0)
+                {
+                    chessboard[j][k+1]=chessboard[j][k];
+                    chessboard[j][k]=0;
+                    k++;
+                }
+
+                while(k<3&&chessboard[j][k]!=0)
+                {
+                    if(chessboard[j][k]==chessboard[j][k+1])
+                    {
+                        chessboard[j][k+1]=chessboard[j][k]+chessboard[j][k+1];
+                        sum=sum+chessboard[j][k+1];
+                        chessboard[j][k]=0;
+                    }
+                    else {
+                        break;
+                    }
+                }
+            }
+        }
+        return sum;
+    }
 }
