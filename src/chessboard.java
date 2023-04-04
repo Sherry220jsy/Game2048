@@ -66,7 +66,7 @@ public class chessboard {
         else chessboard[x][y]=4;
     }
 
-    public static int up(chessboard)
+    public static int up()
     {
         int sum=0;//相加的数之和
 
@@ -101,7 +101,7 @@ public class chessboard {
     }
 
     //下
-    public static int down(chessboard)
+    public static int down()
     {
         int sum=0;
 
@@ -136,7 +136,7 @@ public class chessboard {
 
     //左
 
-    public static int left(chessboard)
+    public static int left()
     {
         int sum=0;
 
@@ -169,7 +169,7 @@ public class chessboard {
         return sum;
     }
     //右
-    public static int right(chessboard)
+    public static int right()
     {
         int sum=0;
 

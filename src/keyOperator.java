@@ -26,11 +26,31 @@ public class keyOperator {
             c.setStatus("end");
             return false;
         }
-        if (in.equals("s"))   //start
+        if (in.equals("o"))   //OK
         {
             c.setStatus("playing");
             return true;
         }
+        if (in.equals("w"))   //OK
+        {
+            c.up();
+            return true;
+        }if (in.equals("a"))   //OK
+        {
+            c.left();
+            return true;
+        }if (in.equals("s"))   //OK
+        {
+            c.down();
+            return true;
+        }if (in.equals("d"))   //OK
+        {
+            c.right();
+            return true;
+        }
+
+
+
         //未完待续...
         System.out.println("异常：非法的输入："+in);
         return false;
