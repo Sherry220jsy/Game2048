@@ -3,6 +3,7 @@ public class Main {
     {
         chessboard c=new chessboard();
         keyOperator k=new keyOperator();
+        System.out.println("按o开始游戏");
         while (true)
         {
             if (k.echoInput(c)==true) c.SpawnBlock();
