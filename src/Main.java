@@ -7,6 +7,7 @@ public class Main {
         {
             if (k.echoInput(c)==true) c.SpawnBlock();
             c.Display();
+            if (c.checkgame()==0) break;
         }
     }
 }

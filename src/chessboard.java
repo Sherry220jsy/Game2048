@@ -201,4 +201,51 @@ public class chessboard {
         }
         return sum;
     }
+
+    public static int checkgame() {
+        int k = 0;
+        for (int i = 0; i < 4; i++) {
+            if (k > 0) {
+                break;
+            }
+            for (int j = 0; j < 4; j++) {
+                if (chessboard[i][j] == 0) {
+                    k++;
+                    break;
+                } else {
+                    //上
+                    if (i > 0) {
+                        if (chessboard[i - 1][j] == chessboard[i][j]) {
+                            k++;
+                            break;
+                        }
+                    }
+                    //下
+                    if (i < 3) {
+                        if (chessboard[i + 1][j] == chessboard[i][j]) {
+                            k++;
+                            break;
+                        }
+                    }
+                    //左
+                    if (j > 0) {
+                        if (chessboard[i][j - 1] == chessboard[i][j]) {
+                            k++;
+                            break;
+                        }
+                        //右
+                        if (j < 3) {
+                            if (chessboard[i][j + 1] == chessboard[i][j]) {
+                                k++;
+                                break;
+                            }
+                        }
+
+                    }
+                }
+            }
+
+        }
+        return k;
+    }
 }
