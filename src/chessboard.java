@@ -89,6 +89,7 @@ public class chessboard {
                     {
                         chessboard[k-1][j]=chessboard[k][j]+chessboard[k-1][j];
                         sum=sum+chessboard[k-1][j];
+                        addScore();
                         chessboard[k][j]=0;
                     }
                     else {
