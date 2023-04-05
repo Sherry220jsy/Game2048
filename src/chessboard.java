@@ -47,8 +47,13 @@ public class chessboard {
         }
     }
 
-    public static void SpawnBlock()
+    public static boolean SpawnBlock()
     {
+        if (checkgame()==0) {
+            System.out.println("游戏结束！");
+            return false;
+        }
+        else System.out.println("游戏继续，因为："+checkgame());
         Random r= new Random();
         boolean ju=r.nextBoolean();
         int x;
@@ -64,6 +69,7 @@ public class chessboard {
             chessboard[x][y]=2;
         }
         else chessboard[x][y]=4;
+        return true;
     }
 
     public int up()
@@ -206,7 +212,7 @@ public class chessboard {
         return sum;
     }
 
-    public static int checkgame() {
+    public static int checkgame() {     //0则退出
         int k = 0;
         for (int i = 0; i < 4; i++) {
             if (k > 0) {
