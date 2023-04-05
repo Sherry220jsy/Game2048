@@ -5,10 +5,10 @@ public class Main {
         keyOperator k=new keyOperator();
         while (true)
         {
-            if (k.echoInput(c)==true) c.SpawnBlock();
+            if (k.echoInput(c)==true) {
+                if (c.SpawnBlock()==false) break;
+            }
             c.Display();
-            if (c.checkgame()==0) break;
         }
-        System.out.println("你死了");
     }
 }
