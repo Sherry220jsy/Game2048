@@ -40,8 +40,8 @@ public class chessboard {
         for (int i=0;i<chessboard.length;i++) {
             for (int j = 0; j < chessboard.length; j++) {
                 if (chessboard[i][j]!=0)
-                System.out.print(chessboard[i][j] + " ");            //忽略为0的位置
-                else System.out.print("  ");
+                    System.out.printf("%-4d",chessboard[i][j]);            //忽略为0的位置
+                else System.out.print("    ");
             }
             System.out.println();
         }
