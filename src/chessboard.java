@@ -57,17 +57,16 @@ public class chessboard {
             System.out.println("恭喜合出2048，你赢了，游戏结束！");
             return false;
         }
-        //else System.out.println("游戏继续，因为："+checkgame());
+        else System.out.println("游戏继续，因为："+checkgame());
         Random r= new Random();
-        boolean ju=r.nextBoolean();
-        int x;
-        int y;
+        int x,y;
         while (true)
         {
             x=r.nextInt(4);
             y=r.nextInt(4);
             if (chessboard[x][y]==0) break;
         }
+        boolean ju=r.nextBoolean();
         if (ju)
         {
             chessboard[x][y]=2;
@@ -216,7 +215,7 @@ public class chessboard {
         return sum;
     }
 
-    public static int checkgame() {     //查询空位数量
+    public static int checkgame() {     //查询是否有“0”,和2048
         int k = 0;
         for (int i = 0; i < 4; i++) {
             if (k > 0) {
