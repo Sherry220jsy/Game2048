@@ -11,8 +11,7 @@ public class Main {
         System.out.println("2.退出游戏");
         Scanner s = new Scanner(System.in);
         String x1 = s.nextLine();
-        if(x1.equals("1"))
-        {
+        if(x1.equals("1")) {
             System.out.println("开始游戏前我们先了解一下游戏规则把！");
             System.out.println("1.查看游戏规则");
             System.out.println("2.游戏高手不需要");
@@ -26,12 +25,14 @@ public class Main {
                 System.out.println("了解完规则就可以开始游戏咯！(请输入o，游戏正式开始)");
                 while (true)
                 {
-                    if (k.echoInput(c)==true) {
-                        if (c.SpawnBlock()==false) break;
+                    if (k.echoInput(c)==true) { //如果输入合法，调用spawnBlock()
+                        if (c.SpawnBlock()==false) //false意味着没有位置生成方块
+                            break;
                     }
                     c.Display();
                 }
-            }else{
+            }
+            else{
                 System.out.println("游戏高手准备好啦吗?我相信这个小游戏一定难不倒你，加油！(请输入o，游戏正式开始)");
                 while (true)
                 {
