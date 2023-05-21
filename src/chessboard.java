@@ -29,7 +29,7 @@ public class chessboard {
 
     public chessboard() {
         this.score = 0;
-        this.status = "Ready";
+        this.status = "按'o'开始游戏";
         this.chessboard = new int[4][4];
     }
 
@@ -47,27 +47,23 @@ public class chessboard {
         }
     }
 
-    public static boolean SpawnBlock()
+    public boolean SpawnBlock()
     {
-        if (checkgame()==0) {
-            System.out.println("棋盘已满，你输了，游戏结束！");
-            return false;
-        }
         if(checkgame()==2048){
             System.out.println("恭喜合出2048，你赢了，游戏结束！");
             return false;
         }
         //else System.out.println("游戏继续，因为："+checkgame());
+
         Random r= new Random();
-        boolean ju=r.nextBoolean();
-        int x;
-        int y;
+        int x,y;
         while (true)
         {
             x=r.nextInt(4);
             y=r.nextInt(4);
             if (chessboard[x][y]==0) break;
         }
+        boolean ju=r.nextBoolean();
         if (ju)
         {
             chessboard[x][y]=2;
@@ -79,7 +75,6 @@ public class chessboard {
     public int up()
     {
         int sum=0;//相加的数之和
-
         for(int j=0;j<4;j++)//控制列
         {
             for(int i=1;i<4;i++)//控制行
@@ -216,21 +211,20 @@ public class chessboard {
         return sum;
     }
 
-    public static int checkgame() {     //查询空位数量
+    public static int checkgame() {     //查询是否有“0”,和2048
         int k = 0;
         for (int i = 0; i < 4; i++) {
-            if (k > 0) {
-                break;
-            }
+            if (k > 0) break;
             for (int j = 0; j < 4; j++) {
-                if(chessboard[i][j]==2048) {
+                if(chessboard[i][j]==2048)
+                {
                     k=2048;
-                    break;
+                    return k;
                 }
                 if (chessboard[i][j] == 0) {
                     k++;
                     break;
-                } else {
+                }else{
                     //上
                     if (i > 0) {
                         if (chessboard[i - 1][j] == chessboard[i][j]) {
@@ -265,5 +259,20 @@ public class chessboard {
 
         }
         return k;
+    }
+    public int check() {     //查询"0"的数量
+        int k = 0;
+        for (int i = 0; i < 4; i++)
+            for (int j = 0; j < 4; j++)
+                if (chessboard[i][j] == 0) k++;
+        return k;
+    }
+    public boolean checkEnd() {     //查询相邻的两个方块是否相同
+        int k = 0;
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
+                    if (chessboard[i][j] == chessboard[i+1][j] || chessboard[i][j] == chessboard[i][j+1]) return true;
+        if (chessboard[3][3]== chessboard[3][2] || chessboard[3][3]==chessboard[2][3]) return true;
+        return false;
     }
 }
