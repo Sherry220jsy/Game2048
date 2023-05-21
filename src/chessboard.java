@@ -29,7 +29,7 @@ public class chessboard {
 
     public chessboard() {
         this.score = 0;
-        this.status = "Ready";
+        this.status = "按'o'开始游戏";
         this.chessboard = new int[4][4];
     }
 
@@ -47,14 +47,13 @@ public class chessboard {
         }
     }
 
-    public static boolean SpawnBlock()
+    public boolean SpawnBlock()
     {
-        if(checkgame()==0) return false;
-        else if(checkgame()==2048){
+        if(checkgame()==2048){
             System.out.println("恭喜合出2048，你赢了，游戏结束！");
             return false;
         }
-        else System.out.println("游戏继续，因为："+checkgame());
+        //else System.out.println("游戏继续，因为："+checkgame());
 
         Random r= new Random();
         int x,y;
@@ -260,5 +259,20 @@ public class chessboard {
 
         }
         return k;
+    }
+    public int check() {     //查询"0"的数量
+        int k = 0;
+        for (int i = 0; i < 4; i++)
+            for (int j = 0; j < 4; j++)
+                if (chessboard[i][j] == 0) k++;
+        return k;
+    }
+    public boolean checkEnd() {     //查询相邻的两个方块是否相同
+        int k = 0;
+        for (int i = 0; i < 3; i++)
+            for (int j = 0; j < 3; j++)
+                    if (chessboard[i][j] == chessboard[i+1][j] || chessboard[i][j] == chessboard[i][j+1]) return true;
+        if (chessboard[3][3]== chessboard[3][2] || chessboard[3][3]==chessboard[2][3]) return true;
+        return false;
     }
 }

@@ -26,15 +26,22 @@ public class Main {
                 System.out.println("棋盘上出现2048，判胜，游戏结束");
                 System.out.println("了解完规则就可以开始游戏咯！(请输入o，游戏正式开始)");
             }
-            else System.out.println("游戏高手准备好啦吗?我相信这个小游戏一定难不倒你，加油！(请输入o，游戏正式开始)");
+            else System.out.println("游戏高手准备好啦吗?我相信这个小游戏一定难不倒你，加油！");
         }
-
+        c.setStatus("playing");
+        c.Display();
         while (true){
-            if (k.echoInput(c)==true) { //如果输入合法，调用spawnBlock()
-                if (c.SpawnBlock()==false) { //false意味着没有位置生成方块
+            String in = k.readInput();
+            if (k.echoInput(in,c)==true && k.juMove(in)==true) { //如果输入合法
+                if (k.chessMove(in,c)==false && c.check()==0) {
+                    if (c.checkEnd()==true){
+                        System.out.println("换个方向试试");
+                        continue;
+                    }
                     System.out.println("棋盘已满，你输了，游戏结束！");
-                    break;
+                    return;
                 }
+                else c.SpawnBlock();
             }
             c.Display();
         }
