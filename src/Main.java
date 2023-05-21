@@ -31,11 +31,12 @@ public class Main {
 
         while (true){
             if (k.echoInput(c)==true) { //如果输入合法，调用spawnBlock()
-                if (c.SpawnBlock()==false) //false意味着没有位置生成方块
+                if (c.SpawnBlock()==false) { //false意味着没有位置生成方块
+                    System.out.println("棋盘已满，你输了，游戏结束！");
                     break;
+                }
             }
             c.Display();
         }
-        System.out.println("你死了");
     }
 }

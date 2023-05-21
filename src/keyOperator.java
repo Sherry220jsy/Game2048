@@ -31,22 +31,23 @@ public class keyOperator {
             c.setStatus("playing");
             return true;
         }
+
         if (in.equals("w"))   //OK
         {
-            c.up();
-            return true;
+            if (c.up()!=0) return true;
+            else return false;
         }if (in.equals("a"))   //OK
         {
-            c.left();
-            return true;
+            if (c.left()!=0) return true;
+            else return false;
         }if (in.equals("s"))   //OK
         {
-            c.down();
-            return true;
+            if (c.down()!=0) return true;
+            else return false;
         }if (in.equals("d"))   //OK
         {
-            c.right();
-            return true;
+            if (c.right()!=0) return true;
+            else return false;
         }
 
 
